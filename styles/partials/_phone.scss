@@ -1,0 +1,234 @@
+@import "../mixins/utils";
+// app in phone styling
+
+// variables
+$gap: 0.5rem;
+$borderRadius: 1.5rem;
+$profilePic: 1.65rem;
+
+// shadow
+$shadow: 0 1px 1rem rgba(0 0 0 / 0.05);
+
+// chat box unit
+$chat: 0.7rem;
+$chat-radius--left: 0.5rem 0.5rem 0.5rem 0.125rem;
+$chat-radius--right: 0.5rem 0.5rem 0.125rem 0.5rem;
+
+.mobile-ui {
+  padding: calc($gap * 1.25);
+  border-radius: $borderRadius;
+  height: auto;
+  width: clamp(18rem, 75%, 20rem);
+  margin: 2rem auto;
+  background-color: $light;
+  filter: drop-shadow($shadow);
+  overflow: hidden;
+
+  & * {
+    pointer-events: none;
+    &::selection {
+      background-color: transparent;
+    }
+  }
+}
+
+.app {
+  @include flex();
+  background-color: $app-bg;
+  border-radius: $borderRadius;
+  height: fit-content;
+
+  .navigate {
+    display: inline-block;
+    &--secondary {
+      // the back navigation button
+      color: $light;
+    }
+    &--primary {
+      background-color: $submit-bg;
+      color: $light;
+      @include circle(1.5rem);
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  &__header {
+    @include flex(row);
+    width: 100%;
+    position: relative;
+    padding: calc($gap * 2) calc($gap * 2) calc($gap / 1.5) calc($gap * 2);
+    @include gradient(to left);
+    border-radius: calc($gap * 2) calc($gap * 2) calc($gap / 2) calc($gap / 2);
+
+    // mobile phone notch
+    &-notch {
+      width: 60%;
+      height: calc($profilePic * 1.25);
+      background-color: $light;
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      border-radius: calc($borderRadius - $gap);
+    }
+
+    // user chat info
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $gap;
+      width: 100%;
+      padding: calc($gap * 1.25);
+
+      &__img {
+        @include circle($profilePic);
+        border: 1px solid $light;
+      }
+
+      &__info {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        margin-right: auto;
+
+        strong {
+          color: $light;
+          font-size: 0.65rem;
+          font-weight: 500;
+        }
+        small {
+          color: $username;
+          font-size: 0.5rem;
+        }
+      }
+    }
+
+    // ellipsis/option
+    & > .ellipsis-container {
+      @include flex();
+      gap: 1.25px;
+      list-style: none;
+
+      & > .ellipsis-dot {
+        @include circle(2px);
+        background-color: $light;
+      }
+    }
+  }
+
+  &__chat,
+  .reply {
+    padding: $gap;
+    display: flex;
+    gap: $gap;
+    flex-direction: column;
+  }
+
+  .chat {
+    padding: $gap $chat;
+    max-width: 65%;
+    line-height: $chat;
+    font-size: 0.55rem;
+
+    &--left {
+      color: $left-chat;
+      margin-right: auto;
+      background: $left-chat-bg;
+      border-radius: $chat-radius--left;
+      filter: drop-shadow($shadow);
+    }
+
+    &--right {
+      color: $right-chat;
+      margin-left: auto;
+      background-color: $light;
+      border-radius: $chat-radius--right;
+      filter: drop-shadow($shadow);
+      box-shadow: $shadow;
+    }
+
+    &--special {
+      @include gradient(to right);
+      max-width: 75%;
+      border-radius: $chat-radius--left;
+      padding: calc($gap * 1.5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: $gap;
+
+      & > * {
+        flex-shrink: 0;
+      }
+
+      & > input {
+        display: none;
+      }
+      & > label {
+        height: 0.8rem;
+        width: 0.8rem;
+        border-radius: 50%;
+        display: inline-block;
+        border: 2px solid $radio-outline;
+      }
+      & > span {
+        margin-right: auto;
+        color: $light;
+        opacity: 0.65;
+      }
+      & > strong {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: $light;
+      }
+    }
+
+    &-form {
+      display: block;
+      position: relative;
+      border-radius: $borderRadius;
+      margin: $gap 0;
+      background-color: $light;
+      padding: calc($gap / 1.75);
+      width: 100%;
+
+      & > input {
+        outline: none;
+        border: transparent;
+        font-size: 0.7rem;
+        width: 100%;
+        padding: calc($gap / 1.5) $gap;
+
+        &::placeholder {
+          color: $placeholder;
+        }
+      }
+
+      & > button[type="submit"] {
+        position: absolute;
+        border: transparent;
+        outline: none;
+        right: 5px;
+        background-color: transparent;
+        top: 50%;
+        font-size: 1rem;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  .attachments {
+    @include flex(row);
+    gap: $gap;
+    margin-left: auto;
+    list-style: none;
+    margin-top: $gap;
+
+    & img {
+      height: 3.125rem;
+      border-radius: $gap;
+      aspect-ratio: square;
+    }
+  }
+}

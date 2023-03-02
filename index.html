@@ -22,7 +22,7 @@
       <section class="app">
         <section class="app__header">
           <span class="app__header-notch"></span>
-          <span class="navigate navigate--secondary"></span>
+          <span class="navigate navigate--secondary">&lsaquo;</span>
           <div class="user">
             <img src="./images/avatar.jpg" alt="Samuel Green's avatar" class="user__img" />
             <div class="user__info">
@@ -43,41 +43,45 @@
           <p class="chat chat--left">
             Could you send over some pictures of your dog, please?
           </p>
-          <ul class="attachments">
-            <li>
-              <img src="./images/dog-image-1.jpg" alt="Dog Image 1">
-            </li>
-            <li>
-              <img src="./images/dog-image-2.jpg" alt="Dog Image 2">
-            </li>
-            <li>
-              <img src="./images/dog-image-3.jpg" alt="Dog Image 3">
-            </li>
-          </ul>
-          <p class="chat chat--right">
-            Here are a few pictures. She’s a happy girl!
-          </p>
-          <p class="chat chat--right">Can you make it?</p>
+          <div class="reply">
+            <ul class="attachments">
+              <li>
+                <img src="./images/dog-image-1.jpg" alt="Dog Image 1">
+              </li>
+              <li>
+                <img src="./images/dog-image-2.jpg" alt="Dog Image 2">
+              </li>
+              <li>
+                <img src="./images/dog-image-3.jpg" alt="Dog Image 3">
+              </li>
+            </ul>
+            <p class="chat chat--right">
+              Here are a few pictures. She’s a happy girl!
+            </p>
+            <p class="chat chat--right">Can you make it?</p>
+          </div>
           <p class="chat chat--left">
             She looks so happy! The time we discussed works. How long shall I
             take her out for?
           </p>
           <p class="chat chat--special">
             <input type="radio" name="walking-duration" id="half" />
+            <label for="half"></label>
             <span>30 minute walk</span>
             <strong> $29 </strong>
           </p>
           <p class="chat chat--special">
             <input type="radio" name="walking-duration" id="one" />
+            <label for="one"></label>
             <span>1 hour walk</span>
             <strong> $49 </strong>
           </p>
 
           <form class="chat-form">
-            <input type="text" placeholder="Type a message..." />
-            <button type="submit" class="">
+            <input type="text" placeholder="Type a message..." disabled />
+            <button type="submit">
               <span class="sr-only">Send message</span>
-              <span class="navigate navigate--primary"></span>
+              <span class="navigate navigate--primary">&rsaquo;</span>
             </button>
           </form>
         </section>

@@ -1,2 +1,12 @@
-// importing partials and mixins
 @import "./partials/base";
+@import "./partials/phone";
+
+.sr-only {
+  position: absolute;
+  z-index: -999;
+  transform: scale(0);
+  opacity: 0;
+  left: -9999999999px;
+  top: -9999999999px;
+  pointer-events: none;
+}

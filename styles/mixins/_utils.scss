@@ -1,0 +1,18 @@
+@mixin flex($direction: column) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+@mixin circle($radius) {
+  display: block;
+  height: $radius;
+  weight: $radius;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+@mixin gradient($direction) {
+  background-image: linear-gradient($direction, $gradient-1, $gradient-2);
+}
