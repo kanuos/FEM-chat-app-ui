@@ -1,0 +1,30 @@
+// gradient variables
+$gradient-1: hsl(293, 100%, 63%);
+$gradient-2: hsl(264, 100%, 61%);
+
+// secondary variables
+$light: hsl(0, 0%, 100%);
+$app-bg: hsl(270, 20%, 96%);
+$submit-bg: hsl(271, 36%, 24%);
+$radio-outline: hsl(289, 100%, 72%);
+
+// primary variables
+$username: hsl(276, 100%, 81%);
+$left-chat: hsl(276, 55%, 52%);
+$right-chat: hsl(271, 15%, 43%);
+$placeholder: hsl(206, 6%, 79%);
+$heading: hsl(271, 36%, 24%);
+$paragraph: hsl(270, 7%, 64%);
+
+// font family
+$font: "Rubik", sans-serif;
+
+// reset and default font family
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font;
+}
