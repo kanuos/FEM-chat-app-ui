@@ -12,9 +12,9 @@
   border-radius: 1.5rem;
   height: auto;
   width: clamp(18rem, 75%, 20rem);
-  margin: 2rem auto;
+  margin: 0 auto;
   background-color: hsl(0, 0%, 100%);
-  filter: drop-shadow(0 1px 1rem rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 1px 1rem rgba(0, 0, 0, 0.125));
   overflow: hidden;
 }
 .mobile-ui * {
@@ -240,8 +240,66 @@
   pointer-events: none;
 }
 
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 header {
-  min-height: 80vh;
+  min-height: 90vh;
   display: grid;
   place-items: center;
+  position: relative;
+}
+header:after {
+  position: absolute;
+  height: 75%;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+  content: "";
+  width: 80%;
+  background-image: linear-gradient(to left top, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  z-index: -1;
+  border-radius: 0 0 10rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  header:after {
+    height: 85%;
+    border-radius: 0 0 20rem 20rem;
+  }
+  header .mobile-ui {
+    margin-left: 10%;
+  }
+}
+@media screen and (min-width: 768px) {
+  header .mobile-ui {
+    margin-left: 20%;
+  }
+  header:after {
+    height: 90%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
+  }
+  header {
+    min-height: 100vh;
+  }
+  header:after {
+    height: 95%;
+    width: 100%;
+    max-width: 35rem;
+    transform: translateX(-20%);
+    border-radius: 0 0 20rem 20rem;
+    background-image: linear-gradient(to bottom, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  }
+  header .mobile-ui {
+    margin-left: 30%;
+  }
 }/*# sourceMappingURL=styles.css.map */

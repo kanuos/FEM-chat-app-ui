@@ -8,6 +8,7 @@ $profilePic: 1.65rem;
 
 // shadow
 $shadow: 0 1px 1rem rgba(0 0 0 / 0.05);
+$shadow--darker: 0 1px 1rem rgba(0 0 0 / 0.125);
 
 // chat box unit
 $chat: 0.7rem;
@@ -19,9 +20,9 @@ $chat-radius--right: 0.5rem 0.5rem 0.125rem 0.5rem;
   border-radius: $borderRadius;
   height: auto;
   width: clamp(18rem, 75%, 20rem);
-  margin: 2rem auto;
+  margin: 0 auto;
   background-color: $light;
-  filter: drop-shadow($shadow);
+  filter: drop-shadow($shadow--darker);
   overflow: hidden;
 
   & * {
