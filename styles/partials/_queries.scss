@@ -1,0 +1,83 @@
+@media screen and (min-width: 600px) {
+  .pattern {
+    &--primary {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+    &--secondary {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      transform: none;
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  header {
+    grid-column: 1 / 2;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    .mobile-ui {
+      transform: translateX(40%);
+    }
+  }
+
+  main {
+    overflow-x: hidden;
+    grid-column: 2 / 3;
+    padding-bottom: 0;
+    margin-left: -10%;
+
+    & section {
+      text-align: left;
+      align-items: start;
+      width: 85%;
+      max-width: 30rem;
+      margin-left: 0;
+    }
+  }
+
+  .pattern {
+    clip-path: none;
+    $patternRadius: 20rem;
+    &--primary {
+      width: 100%;
+      max-width: 45vw;
+      height: 95%;
+      transform: translateX(-20%);
+      border-bottom-right-radius: $patternRadius;
+      border-bottom-left-radius: $patternRadius;
+    }
+
+    &--secondary {
+      transform: translateX(60%);
+      height: 75%;
+      width: 75%;
+      border-top-right-radius: $patternRadius;
+      border-top-left-radius: $patternRadius;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .pattern {
+    max-width: 30vw;
+    &--primary {
+      height: 95vh;
+      transform: translateX(0);
+      border-radius: 0 0 25rem 25rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+main {
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-bottom: 3rem;
+
+
+  & section {
+    @include flex();
+    gap: calc($gap * 3);
+    text-align: center;
+    margin-bottom: 3rem;
+    margin: 0 auto;
+    width: 65%;
+    max-width: 25rem;
+    & > h1 {
+      color: $heading;
+      font-weight: 500;
+      font-size: 2.25rem;
+    }
+
+    & > p {
+      color: $paragraph;
+      font-size: 0.9rem;
+      line-height: 1.5rem;
+    }
+  }
+}

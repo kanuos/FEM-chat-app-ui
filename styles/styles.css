@@ -11,7 +11,7 @@
   padding: 0.625rem;
   border-radius: 1.5rem;
   height: auto;
-  width: clamp(18rem, 75%, 20rem);
+  width: clamp(16rem, 75%, 18rem);
   margin: 0 auto;
   background-color: hsl(0, 0%, 100%);
   filter: drop-shadow(0 1px 1rem rgba(0, 0, 0, 0.125));
@@ -129,9 +129,9 @@
   flex-direction: column;
 }
 .app .chat {
-  padding: 0.5rem 0.7rem;
+  padding: 0.5rem 0.6rem;
   max-width: 65%;
-  line-height: 0.7rem;
+  line-height: 0.6rem;
   font-size: 0.55rem;
 }
 .app .chat--left {
@@ -230,6 +230,36 @@
   aspect-ratio: square;
 }
 
+main {
+  height: 100%;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding-bottom: 3rem;
+}
+main section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  margin: 0 auto;
+  width: 65%;
+  max-width: 25rem;
+}
+main section > h1 {
+  color: hsl(271, 36%, 24%);
+  font-weight: 500;
+  font-size: 2.25rem;
+}
+main section > p {
+  color: hsl(270, 7%, 64%);
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
 .sr-only {
   position: absolute;
   z-index: -999;
@@ -243,6 +273,8 @@
 body {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 2rem;
+  overflow-x: hidden;
 }
 
 header {
@@ -251,35 +283,44 @@ header {
   place-items: center;
   position: relative;
 }
-header:after {
+
+.pattern {
   position: absolute;
-  height: 75%;
+  pointer-events: none;
+}
+.pattern--primary {
+  height: 80%;
+  width: 50%;
   top: 0;
   left: 0;
-  transform: translateX(-50%);
-  pointer-events: none;
-  content: "";
-  width: 80%;
-  background-image: linear-gradient(to left top, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
-  z-index: -1;
-  border-radius: 0 0 10rem 0;
+  background-image: linear-gradient(to bottom, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  border-bottom-right-radius: 15rem;
+}
+.pattern--secondary {
+  height: 70%;
+  width: 40%;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(to top, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+  opacity: 0.05;
+  border-top-left-radius: 15rem;
 }
 
 @media screen and (min-width: 600px) {
-  header:after {
-    height: 85%;
-    border-radius: 0 0 20rem 20rem;
+  .pattern--primary {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    -webkit-clip-path: polygon(0 0, 100% 0, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 0 100%);
   }
-  header .mobile-ui {
-    margin-left: 10%;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .mobile-ui {
-    margin-left: 20%;
-  }
-  header:after {
-    height: 90%;
+  .pattern--secondary {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    transform: none;
+    -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
   }
 }
 @media screen and (min-width: 1024px) {
@@ -287,19 +328,56 @@ header:after {
     display: grid;
     min-height: 100vh;
     grid-template-columns: 1fr 1fr;
+    gap: 3rem;
   }
   header {
+    grid-column: 1/2;
     min-height: 100vh;
-  }
-  header:after {
-    height: 95%;
-    width: 100%;
-    max-width: 35rem;
-    transform: translateX(-20%);
-    border-radius: 0 0 20rem 20rem;
-    background-image: linear-gradient(to bottom, hsl(293, 100%, 63%), hsl(264, 100%, 61%));
+    overflow-x: hidden;
   }
   header .mobile-ui {
-    margin-left: 30%;
+    transform: translateX(40%);
+  }
+  main {
+    overflow-x: hidden;
+    grid-column: 2/3;
+    padding-bottom: 0;
+    margin-left: -10%;
+  }
+  main section {
+    text-align: left;
+    align-items: start;
+    width: 85%;
+    max-width: 30rem;
+    margin-left: 0;
+  }
+  .pattern {
+    -webkit-clip-path: none;
+            clip-path: none;
+  }
+  .pattern--primary {
+    width: 100%;
+    max-width: 45vw;
+    height: 95%;
+    transform: translateX(-20%);
+    border-bottom-right-radius: 20rem;
+    border-bottom-left-radius: 20rem;
+  }
+  .pattern--secondary {
+    transform: translateX(60%);
+    height: 75%;
+    width: 75%;
+    border-top-right-radius: 20rem;
+    border-top-left-radius: 20rem;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .pattern {
+    max-width: 30vw;
+  }
+  .pattern--primary {
+    height: 95vh;
+    transform: translateX(0);
+    border-radius: 0 0 25rem 25rem;
   }
 }/*# sourceMappingURL=styles.css.map */

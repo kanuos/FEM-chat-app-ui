@@ -1,0 +1,25 @@
+$patternRadius: 15rem;
+
+.pattern {
+  position: absolute;
+  pointer-events: none;
+
+  &--primary {
+    height: 80%;
+    width: 50%;
+    top: 0;
+    left: 0;
+    @include gradient(to bottom);
+    border-bottom-right-radius: $patternRadius;
+  }
+
+  &--secondary {
+    height: 70%;
+    width: 40%;
+    bottom: 0;
+    right: 0;
+    @include gradient(to top);
+    opacity: 0.05;
+    border-top-left-radius: $patternRadius;
+  }
+}
