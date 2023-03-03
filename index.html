@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./styles/styles.css" />
+  <script src="./animation.js" defer></script>
 </head>
 
 <body>
@@ -38,40 +39,40 @@
           </ul>
         </section>
         <section class="app__chat">
-          <p class="chat chat--left">
+          <p class="chat chat--left" data-chat="1">
             That sounds great. I’d be happy with that.
           </p>
-          <p class="chat chat--left">
+          <p class="chat chat--left" data-chat="2">
             Could you send over some pictures of your dog, please?
           </p>
           <div class="reply">
             <ul class="attachments">
-              <li>
+              <li data-chat="3">
                 <img src="./images/dog-image-1.jpg" alt="Dog Image 1">
               </li>
-              <li>
+              <li data-chat="4">
                 <img src="./images/dog-image-2.jpg" alt="Dog Image 2">
               </li>
-              <li>
+              <li data-chat="5">
                 <img src="./images/dog-image-3.jpg" alt="Dog Image 3">
               </li>
             </ul>
-            <p class="chat chat--right">
+            <p class="chat chat--right" data-chat="6">
               Here are a few pictures. She’s a happy girl!
             </p>
-            <p class="chat chat--right">Can you make it?</p>
+            <p class="chat chat--right" data-chat="7">Can you make it?</p>
           </div>
-          <p class="chat chat--left">
+          <p class="chat chat--left" data-chat="8">
             She looks so happy! The time we discussed works. How long shall I
             take her out for?
           </p>
-          <p class="chat chat--special">
+          <p class="chat chat--special" data-chat="9">
             <input type="radio" name="walking-duration" id="half" />
             <label for="half"></label>
             <span>30 minute walk</span>
             <strong> $29 </strong>
           </p>
-          <p class="chat chat--special">
+          <p class="chat chat--special" data-chat="10">
             <input type="radio" name="walking-duration" id="one" />
             <label for="one"></label>
             <span>1 hour walk</span>
